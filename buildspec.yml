@@ -9,7 +9,7 @@ env:
 phases:
   install:
     commands: 
-      - echo $DOCKER_UERNAME
+      - kubectl get all --all-namespaces
   pre_build: 
     commands:
       - echo pre_build
