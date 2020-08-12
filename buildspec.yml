@@ -3,6 +3,7 @@ version: 0.2
 env: 
   variables: 
     JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
+    TEST: ${{ secrets.TEST }}
   parameter-store:
     DOCKER_UERNAME: /Test/helloWorld
 
@@ -13,7 +14,8 @@ phases:
       - chmod +x /usr/local/bin/kubectl
   pre_build: 
     commands:
-      - aws eks list-clusters
+      - aws --version
+      - echo $TEST
   build:
     commands:
       - echo build
