@@ -2,7 +2,6 @@ version: 0.2
 
 env:
   parameter-store:
-    DOCKER_LOGIN_USER: dockerLoginUser
     DOCKER_LOGIN_PASSWORD: /Test/helloWorld
 
 phases:
@@ -13,10 +12,10 @@ phases:
   pre_build: 
     commands:
       - aws --version
-      - aws eks update-kubeconfig --name <EKSのクラスター名>
   build:
     commands:
       - echo build
+      - pwd
   post_build:
     commands:
       - echo post_build
