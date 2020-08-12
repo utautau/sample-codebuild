@@ -2,12 +2,14 @@ version: 0.2
 
 env: 
   variables: 
-     REGION_NAME: "ap-northeast-1" 
+    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
+  parameter-store:
+    DOCKER_UERNAME: /Test/helloWorld
 
 phases:
   install:
     commands: 
-      - echo install
+      - echo $DOCKER_UERNAME
   pre_build: 
     commands:
       - echo pre_build
