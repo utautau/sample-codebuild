@@ -13,7 +13,7 @@ phases:
       - chmod +x /usr/local/bin/kubectl
   pre_build: 
     commands:
-      - kubectl
+      - aws eks list-clusters
   build:
     commands:
       - echo build
