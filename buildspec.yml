@@ -1,11 +1,9 @@
 version: 0.2
 
-env: 
-  variables: 
-    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
-    TEST: ${{ secrets.TEST }}
+env:
   parameter-store:
-    DOCKER_UERNAME: /Test/helloWorld
+    DOCKER_LOGIN_USER: dockerLoginUser
+    DOCKER_LOGIN_PASSWORD: /Test/helloWorld
 
 phases:
   install:
@@ -15,7 +13,7 @@ phases:
   pre_build: 
     commands:
       - aws --version
-      - echo $TEST
+      - aws eks update-kubeconfig --name <EKSのクラスター名>
   build:
     commands:
       - echo build
