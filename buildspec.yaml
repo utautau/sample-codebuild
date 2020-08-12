@@ -1,0 +1,31 @@
+version: 0.2
+
+env: 
+  variables: 
+     REGION_NAME: "ap-northeast-1" 
+     REPOSITORY_NAME: "test" 
+     BRANCH_NAME: "develop" 
+     ECR_REPOSITORY: "XXXXXXXXXXX.dkr.ecr.$REGION_NAME.amazonaws.com/xxxxxxx" 
+     # Helmチャートの名前
+     CHART_NAME: "test" 
+     # Helmチャートをアップロードするバケット内のパス
+     ARTIFACT_PATH: "test-dev"
+     # Spinnakerのパイプラインでトリガーに設定しているURL
+     URL : "deploy-test-dev" 
+
+phases:
+  install:
+    # Dockerデーモンの起動
+    runtime-versions:
+      docker: 18
+    commands: 
+      - echo install
+  pre_build: 
+    commands:
+      - echo pre_build
+  build:
+    commands:
+      - echo build
+  post_build:
+    commands:
+      - echo post_build
