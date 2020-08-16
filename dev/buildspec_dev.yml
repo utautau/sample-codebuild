@@ -16,3 +16,4 @@ phases:
       - echo build
       - pwd
       - less dev/buildspec_dev.yml
+      - docker ps
