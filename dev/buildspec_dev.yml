@@ -1,1 +1,18 @@
+version: 0.2
 
+env:
+  parameter-store:
+    DOCKER_LOGIN_PASSWORD: /Test/helloWorld
+
+phases:
+  install:
+    commands: 
+      - echo testdayo
+  pre_build: 
+    commands:
+      - aws --version
+  build:
+    commands:
+      - echo build
+      - pwd
+      - less dev/buildspec_dev.yml
