@@ -1,6 +1,9 @@
 version: 0.2
 
 env:
+  variables:
+    DOCKER_USER: "outautauo"
+    DOCKER_PASS: "hogehoge"
   parameter-store:
     DOCKER_LOGIN_PASSWORD: /Test/helloWorld
 
@@ -16,4 +19,4 @@ phases:
       - echo build
       - pwd
       - less dev/buildspec_dev.yml
-      - docker ps
+      - docker login -u $DOCKER_USER -p $DOCKER_PASS
